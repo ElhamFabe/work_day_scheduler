@@ -1,5 +1,13 @@
 // create variables to store/loop
+let daySch = [
+{
+id : "",
+hour :"",
 
+
+}
+
+]
 
 
 // moment.js data for date (header)
