@@ -98,11 +98,14 @@ let daySch = [
 // moment.js data for date
 
 function momentDate() {
-    let currentMomentDate = moment().format("dddd, MMM do YYY, h:mm:ss a");
+    let currentMomentDate = moment().format('LLLL');
     $("#currentDay").text(currentMomentDate);
     console.log(currentMomentDate);
 };
 
+function saveAgenda () {
+    localStorage.setItem("daySch", JSON.stringify(daySch));
+}
 momentDate();
 
 // // create scheduling form / rows // using forEach to called for each element in the array. 
@@ -126,11 +129,11 @@ daySch.forEach(function (timeBlock) {
     let userAgenda = $("<textarea>");
     agendaHolder.append("userAgenda");
     userAgenda.attr("id", timeBlock.id);
-    if (timeBlock.time < moment().format("h:mm:ss")) {
+    if (timeBlock.time < moment().format("h:mm")) {
         userAgenda.addClass("past");
-    } else if (timeBlock.time === moment().format("h:mm:ss")) {
+    } else if (timeBlock.time === moment().format("h:mm")) {
         userAgenda.addClass("present");
-    }else if (timeBlock.time > momen().format("h:mm:ss")){
+    }else if (timeBlock.time > moment().format("h:mm")){
         userAgenda.addClass("future");
     }
 console.log(userAgenda)
