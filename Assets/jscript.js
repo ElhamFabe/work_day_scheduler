@@ -110,7 +110,7 @@ function saveAgenda() {
 function showAgenda() {
     daySch.forEach(function (hourly) {
         $(`#${hourly.id}`).val(hourly.agenda);
-    });
+    })
 }
 // instead of using document.ready / use init
 function init() {
@@ -126,7 +126,7 @@ momentDate();
 
 // // create scheduling form / rows // using forEach to called for each element in the array. 
 daySch.forEach(function (timeBlock) {
-    let timeRow = $("<form>").attr({
+    let timeRow = $("<form>").addClass({
         "class": "row"
     });
 
@@ -135,10 +135,10 @@ daySch.forEach(function (timeBlock) {
 
     // create time for rows
     let hrRow = $("<div>")
-        .text(`${timeBlock.hour}${timeBlock.time}`)
+        .text(`${timeBlock.hour}${timeBlock.mid}`)
         .addClass("col-md-1 hour");
     // create data holder for past, present and future
-    let agendaHolder = $("<div>").addClass("col-md-8 userInput");
+    let agendaHolder = $("<div>").addClass("col-md-10 userInput");
 
     let userAgenda = $("<textarea>");
     agendaHolder.append(userAgenda);
