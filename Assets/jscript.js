@@ -136,12 +136,12 @@ daySch.forEach(function (timeBlock) {
     // create time for rows
     let hrRow = $("<div>")
         .text(`${timeBlock.hour}${timeBlock.time}`)
-        .addClass("col-md-2 hour");
+        .addClass("col-md-1 hour");
     // create data holder for past, present and future
     let agendaHolder = $("<div>").addClass("col-md-8 userInput");
 
     let userAgenda = $("<textarea>");
-    agendaHolder.append("userAgenda");
+    agendaHolder.append(userAgenda);
     userAgenda.attr("id", timeBlock.id);
     if (timeBlock.time < moment().format("h:mm")) {
         userAgenda.addClass("past");
@@ -155,11 +155,12 @@ daySch.forEach(function (timeBlock) {
 
 
     // // create save button
-    let saveButton = $("<i class='fas fa-bolt'></i>");
-    let saveSch = $("<button>").addClass("col-md-2 saveBtn");
-    saveSch.append(saveButton);
-    timeRow.append(hrRow, agendaHolder, userAgenda);
-console.log(saveSch);
+    let btnSave = $('<i class="fas fa-bolt"></i>')
+    let saveSch = $("<button>")
+    .addClass("col-md-1 saveBtn");
+    saveSch.append(btnSave);
+    timeRow.append(hrRow, agendaHolder, saveSch);
+    console.log(saveSch);
 
 });
 init();
@@ -167,8 +168,10 @@ init();
 // save data to local storage
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
-    let saved = $(this).
+    let saved = $(this).siblings(".userInput").children(".future").attr("id");
+    daySch[saved].agenda = $(this).siblings(".userInput").children(".futre").val();
+    console.log(saved);
 
-        saveAgenda();
+    saveAgenda();
     showAgenda();
 });
