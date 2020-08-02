@@ -120,8 +120,8 @@ daySch.forEach(function (timeBlock) {
     .text(`${timeBlock.hour}${timeBlock.time}`)
     .attr({"class":"col-md-1 hour" // 1-10-1 = 12 (bootstrap)
     });
-let 
-
+// create data holder for past, present and future
+let agendaHolder = $("<section>").attr("class", "col-md-10 userInput")
 });
 
 
