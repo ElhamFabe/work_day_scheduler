@@ -125,12 +125,15 @@ daySch.forEach(function (timeBlock) {
 
     let userAgenda = $("<textarea>");
     agendaHolder.append("userAgenda");
-    userAgenda.attr("id", thisHour.id);
-    if (thisHour.time < moment().format("h")) {
+    userAgenda.attr("id", timeBlock.id);
+    if (timeBlock.time < moment().format("h:mm:ss")) {
         userAgenda.addClass("past");
-
-    }; else if (thisHour.time )
-
+    } else if (timeBlock.time === moment().format("h:mm:ss")) {
+        userAgenda.addClass("present");
+    }else if (timeBlock.time > momen().format("h:mm:ss")){
+        userAgenda.addClass("future");
+    }
+console.log(userAgenda)
 });
 
 // // create save button
