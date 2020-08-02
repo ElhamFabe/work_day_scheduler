@@ -122,10 +122,16 @@ daySch.forEach(function (timeBlock) {
         });
     // create data holder for past, present and future
     let agendaHolder = $("<section>").attr("class", "col-md-10 userInput")
-});
-let userAgenda = $("<textarea>");
-agendaHolder.append("userAgenda");
 
+    let userAgenda = $("<textarea>");
+    agendaHolder.append("userAgenda");
+    userAgenda.attr("id", thisHour.id);
+    if (thisHour.time < moment().format("h")) {
+        userAgenda.addClass("past");
+
+    }; else if (thisHour.time )
+
+});
 
 // // create save button
 let saveBtn = $("<i class='fas fa-bolt'></i>");
