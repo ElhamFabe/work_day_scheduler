@@ -118,16 +118,17 @@ daySch.forEach(function (timeBlock) {
     // create time for rows
     let hrRow = $("<div>")
     .text(`${timeBlock.hour}${timeBlock.time}`)
-    .attr({"class":"col-md-1 hour"
+    .attr({"class":"col-md-1 hour" // 1-10-1 = 12 (bootstrap)
     });
+let 
 
-    
 });
 
 
 // // create save button
-// let saveBtn = $("<i class='fas fa-bolt'></i>");
-// let saveSch = $("<button>").attr("class", "col-md-1")
+let saveBtn = $("<i class='fas fa-bolt'></i>");
+let saveSch = $("<button>").attr("class", "col-md-1")
+
 
 
 
@@ -136,6 +137,11 @@ daySch.forEach(function (timeBlock) {
 
 
 // save data to local storage
+$(".saveBtn").on("click", function (event){
+    event.preventDefault ();
+    let 
 
+
+});
 
 // view exsisting local storage 
