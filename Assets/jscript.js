@@ -117,8 +117,8 @@ function init() {
     let savedDaySch = JSON.parse(localStorage.getItem("daySch"));
 
     if (savedDaySch) {
-        daySch = daySch;
-    }
+        daySch = savedDaySch;
+    };
     saveAgenda();
     showAgenda();
 }
@@ -126,26 +126,28 @@ momentDate();
 
 // // create scheduling form / rows // using forEach to called for each element in the array. 
 daySch.forEach(function (timeBlock) {
-    let timeRow = $("<form>").addClass("row");
+    let tRow = $("<form>").addClass("row");
 
-    $(".container").append(timeRow);
-    console.log(timeRow);
+    $(".container-fluid").append(tRow);
+    console.log(tRow);
 
-    // create time for rows
+    // create time row
     let hrRow = $("<div>")
         .text(`${timeBlock.hour}${timeBlock.mid}`)
         .addClass("col-md-1 hour");
     // create data holder for past, present and future
-    let agendaHolder = $("<div>").addClass("col-md-10 userInput ");
+    let agendaHolder = $("<div>").addClass("col-md-10 user");
 
     let userAgenda = $("<textarea>");
+
     agendaHolder.append(userAgenda);
+    // h -12 hr, m- minutes 0..59
     userAgenda.attr("id", timeBlock.id);
-    if (timeBlock.time < moment().format("h:mm")) {
+    if (timeBlock.time < moment().format("h:m")) {
         userAgenda.addClass("past");
-    } else if (timeBlock.time === moment().format("h:mm")) {
+    } else if (timeBlock.time === moment().format("h:m")) {
         userAgenda.addClass("present");
-    } else if (timeBlock.time > moment().format("h:mm")) {
+    } else if (timeBlock.time > moment().format("h:m")) {
         userAgenda.addClass("future");
     }
     console.log(userAgenda)
@@ -156,8 +158,11 @@ daySch.forEach(function (timeBlock) {
     let btnSave = $('<i class="fas fa-bolt"></i>')
     let saveSch = $("<button>")
         .addClass("col-md-1 saveBtn");
+
     saveSch.append(btnSave);
-    timeRow.append(hrRow, agendaHolder, saveSch);
+
+    tRow.append(hrRow, agendaHolder, saveSch);
+
     console.log(saveSch);
 
 });
@@ -167,12 +172,15 @@ init();
 // save data to local storage
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
-    let savedIndex = $(this).siblings(".userInput").children(".future").attr("id");
 
-    daySch[savedIndex].agenda = $(this).siblings(".userInput").children(".futre").val();
+    let savedIndex = $(this).siblings
+    (".user").children(".future").attr("id");
+
+    daySch[savedIndex].agenda = $(this).siblings(".user").children(".future").val();
 
     console.log(savedIndex);
 
     saveAgenda();
     showAgenda();
+
 });

@@ -6,8 +6,9 @@ text-align: center;
 };
 
 .jumbotron {
-background-color: 
-border: 1px solid black;
+background-color: rgb(175, 165, 145) !important;
+margin-top: 10px;
+border: 3px solid rgb(10, 10, 10);
 color: black;
 
 };
@@ -33,15 +34,15 @@ textarea {
 
 };
 .past {
-    background-color: blanchedalmond;
+    background-color: rgb(216, 134, 11);
 
 };
 .present {
-    background-color: gr;
+    background-color: rgb(84, 233, 84);
 
 };
 .future {
-   background-color: cadetblue ;
+   background-color: rgb(70, 221, 227);
 };
 .userInput {
     white-space: pre-wrap;
@@ -49,8 +50,6 @@ textarea {
 
 .saveBtn {
     border: 2px solid;
-    
-  
     width: 50px; 
     height: 50px; 
     padding: 7px 10px; 
