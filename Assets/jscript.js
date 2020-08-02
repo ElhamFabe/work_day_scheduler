@@ -3,50 +3,50 @@ let daySch = [
     {
         id: "0",
         hour: "08",
-        time:"08",
-        mid:"am",
+        time: "08",
+        mid: "am",
         agenda: ""
 
     },
     {
         id: "1",
         hour: "09",
-        time:"09",
-        mid:"am",
+        time: "09",
+        mid: "am",
         agenda: ""
     },
     {
         id: "2",
         hour: "10",
         time: "10",
-        mid:"am",
+        mid: "am",
         agenda: ""
     },
     {
         id: "3",
         hour: "11",
         time: "11",
-        mid:"am",
+        mid: "am",
         agenda: ""
     },
     {
         id: "4",
         hour: "12",
         time: "12",
-        mid:"pm",
+        mid: "pm",
         agenda: ""
     },
     {
         id: "5",
         hour: "01",
         time: "01",
-        mid:"pm",
+        mid: "pm",
         agenda: ""
     },
     {
         id: "6",
         hour: "02",
-        time:"02",
+        time: "02",
         mid: "pm",
         agenda: ""
     },
@@ -54,14 +54,14 @@ let daySch = [
         id: "7",
         hour: "03",
         time: "03",
-        mid:"pm",
+        mid: "pm",
         agenda: ""
     },
     {
         id: "8",
         hour: "04",
         time: "04",
-        mid:"pm",
+        mid: "pm",
         agenda: ""
     },
     {
@@ -69,28 +69,28 @@ let daySch = [
         hour: "05",
         time: "05",
         mid: "pm",
-        agenda:""
+        agenda: ""
     },
     {
         id: "10",
         hour: "06",
         time: "06",
         mid: "pm",
-        agenda:""
+        agenda: ""
     },
     {
         id: "11",
         hour: "07",
         time: "07",
         mid: "pm",
-        agenda:""
+        agenda: ""
     },
     {
         id: "12",
         hour: "08",
         time: "08",
         mid: "pm",
-        agenda:""
+        agenda: ""
     }
 ]
 
@@ -109,7 +109,6 @@ momentDate();
 daySch.forEach(function (timeBlock) {
     let timeRow = $("<form>").attr({
         "class": "row"
-
     });
 
     $(".container").append(timeRow);
@@ -117,12 +116,15 @@ daySch.forEach(function (timeBlock) {
 
     // create time for rows
     let hrRow = $("<div>")
-    .text(`${timeBlock.hour}${timeBlock.time}`)
-    .attr({"class":"col-md-1 hour" // 1-10-1 = 12 (bootstrap)
-    });
-// create data holder for past, present and future
-let agendaHolder = $("<section>").attr("class", "col-md-10 userInput")
+        .text(`${timeBlock.hour}${timeBlock.time}`)
+        .attr({
+            "class": "col-md-1 hour" // 1-10-1 = 12 (bootstrap)
+        });
+    // create data holder for past, present and future
+    let agendaHolder = $("<section>").attr("class", "col-md-10 userInput")
 });
+let userAgenda = $("<textarea>");
+agendaHolder.append("userAgenda");
 
 
 // // create save button
@@ -137,9 +139,9 @@ let saveSch = $("<button>").attr("class", "col-md-1")
 
 
 // save data to local storage
-$(".saveBtn").on("click", function (event){
-    event.preventDefault ();
-    let 
+$(".saveBtn").on("click", function (event) {
+    event.preventDefault();
+    let
 
 
 });
