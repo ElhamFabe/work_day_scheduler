@@ -95,9 +95,9 @@ let daySch = [
 ]
 // moment.js data for date
 function momentDate() {
-    let currentMomentDate = moment().format('LLLL');
-    $("#currentDay").text(currentMomentDate);
-    console.log(currentMomentDate);
+    let today = moment().format('LLLL');
+    $("#currentDay").text(today);
+    console.log(today);
 };
 // setItem allows to set any of the user data into local storage
 // local storage 
@@ -117,7 +117,7 @@ function init() {
     let savedDaySch = JSON.parse(localStorage.getItem("daySch"));
 
     if (savedDaySch) {
-        savedDaySch = daySch;
+        daySch = daySch;
     }
     saveAgenda();
     showAgenda();
@@ -126,9 +126,7 @@ momentDate();
 
 // // create scheduling form / rows // using forEach to called for each element in the array. 
 daySch.forEach(function (timeBlock) {
-    let timeRow = $("<form>").addClass({
-        "class": "row"
-    });
+    let timeRow = $("<form>").addClass("row");
 
     $(".container").append(timeRow);
     console.log(timeRow);
@@ -138,7 +136,7 @@ daySch.forEach(function (timeBlock) {
         .text(`${timeBlock.hour}${timeBlock.mid}`)
         .addClass("col-md-1 hour");
     // create data holder for past, present and future
-    let agendaHolder = $("<div>").addClass("col-md-10 userInput");
+    let agendaHolder = $("<div>").addClass("col-md-10 userInput ");
 
     let userAgenda = $("<textarea>");
     agendaHolder.append(userAgenda);
@@ -157,20 +155,23 @@ daySch.forEach(function (timeBlock) {
     // // create save button
     let btnSave = $('<i class="fas fa-bolt"></i>')
     let saveSch = $("<button>")
-    .addClass("col-md-1 saveBtn");
+        .addClass("col-md-1 saveBtn");
     saveSch.append(btnSave);
     timeRow.append(hrRow, agendaHolder, saveSch);
     console.log(saveSch);
 
 });
+
 init();
 
 // save data to local storage
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
-    let saved = $(this).siblings(".userInput").children(".future").attr("id");
-    daySch[saved].agenda = $(this).siblings(".userInput").children(".futre").val();
-    console.log(saved);
+    let savedIndex = $(this).siblings(".userInput").children(".future").attr("id");
+
+    daySch[savedIndex].agenda = $(this).siblings(".userInput").children(".futre").val();
+
+    console.log(savedIndex);
 
     saveAgenda();
     showAgenda();

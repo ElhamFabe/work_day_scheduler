@@ -6,7 +6,7 @@ text-align: center;
 };
 
 .jumbotron {
-background-color: aliceblue;
+background-color: 
 border: 1px solid black;
 color: black;
 
@@ -37,7 +37,7 @@ textarea {
 
 };
 .present {
-    background-color: azure;
+    background-color: gr;
 
 };
 .future {
@@ -56,9 +56,4 @@ textarea {
     padding: 7px 10px; 
     border-radius: 25px; 
     background-color: cadetblue;
-};
-.footer{
-    /* border: 2px solid black; */
-    /* text-align: center;
-    font-size: 15px;
 };
