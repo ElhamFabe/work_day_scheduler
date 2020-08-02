@@ -8,3 +8,11 @@ body {
 text-align: center
 
 };
+
+.hour {
+    background-color: navy;
+};
+
+.userInput {
+    background-color: olive;
+}

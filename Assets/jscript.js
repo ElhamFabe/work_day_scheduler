@@ -94,20 +94,6 @@ let daySch = [
     }
 ]
 
-
-// moment.js data for date
-
-function momentDate() {
-    let currentMomentDate = moment().format('LLLL');
-    $("#currentDay").text(currentMomentDate);
-    console.log(currentMomentDate);
-};
-
-function saveAgenda () {
-    localStorage.setItem("daySch", JSON.stringify(daySch));
-}
-momentDate();
-
 // // create scheduling form / rows // using forEach to called for each element in the array. 
 daySch.forEach(function (timeBlock) {
     let timeRow = $("<form>").attr({
@@ -133,11 +119,43 @@ daySch.forEach(function (timeBlock) {
         userAgenda.addClass("past");
     } else if (timeBlock.time === moment().format("h:mm")) {
         userAgenda.addClass("present");
-    }else if (timeBlock.time > moment().format("h:mm")){
+    } else if (timeBlock.time > moment().format("h:mm")) {
         userAgenda.addClass("future");
     }
-console.log(userAgenda)
+    console.log(userAgenda)
 });
+
+// moment.js data for date
+function momentDate() {
+    let currentMomentDate = moment().format('LLLL');
+    $("#currentDay").text(currentMomentDate);
+    console.log(currentMomentDate);
+};
+// setItem allows to set any of the user data into local storage
+function saveAgenda() {
+    localStorage.setItem("daySch", JSON.stringify(daySch));
+}
+
+// allows users to view their saved data
+function showAgenda() {
+    daySch.forEach(function (hourly) {
+        $('#${hourly.id}').val(hourly.agenda);
+    })
+}
+// instead of using document.ready / use init
+function init() {
+    let savedDaySch = JSON.parse(localStorage.getItem("daySch"));
+
+    if (savedDaySch) {
+        savedDaySch = daySch;
+    }
+    saveAgenda();
+    showAgenda();
+
+}
+
+momentDate();
+
 
 // // create save button
 let saveBtn = $("<i class='fas fa-bolt'></i>");
