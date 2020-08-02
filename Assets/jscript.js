@@ -110,7 +110,7 @@ daySch.forEach(function (timeBlock) {
             "class": "col-md-1 hour" // 1-10-1 = 12 (bootstrap)
         });
     // create data holder for past, present and future
-    let agendaHolder = $("<section>").attr("class", "col-md-10 userInput")
+    let agendaHolder = $("<div>").attr("class", "col-md-10 userInput")
 
     let userAgenda = $("<textarea>");
     agendaHolder.append("userAgenda");
@@ -132,15 +132,17 @@ function momentDate() {
     console.log(currentMomentDate);
 };
 // setItem allows to set any of the user data into local storage
+// local storage 
+// function save
 function saveAgenda() {
     localStorage.setItem("daySch", JSON.stringify(daySch));
 }
-
 // allows users to view their saved data
+// view exsisting local storage 
 function showAgenda() {
     daySch.forEach(function (hourly) {
-        $('#${hourly.id}').val(hourly.agenda);
-    })
+        $(`#${hourly.id}`).val(hourly.agenda);
+    });
 }
 // instead of using document.ready / use init
 function init() {
@@ -151,9 +153,7 @@ function init() {
     }
     saveAgenda();
     showAgenda();
-
 }
-
 momentDate();
 
 
@@ -164,9 +164,8 @@ let saveSch = $("<button>").attr("class", "col-md-1")
 
 
 
-// local storage 
-// function save
 
+init ();
 
 // save data to local storage
 $(".saveBtn").on("click", function (event) {
@@ -175,5 +174,3 @@ $(".saveBtn").on("click", function (event) {
 
 
 });
-
-// view exsisting local storage 
