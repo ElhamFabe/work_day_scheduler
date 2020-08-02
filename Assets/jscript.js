@@ -116,7 +116,12 @@ daySch.forEach(function (timeBlock) {
     console.log(timeRow);
 
     // create time for rows
-    let hrRow = $("<div>").text(${timeBlock.hour}${timeBlock.})
+    let hrRow = $("<div>")
+    .text(`${timeBlock.hour}${timeBlock.time}`)
+    .attr({"class":"col-md-1 hour"
+    });
+
+    
 });
 
 
