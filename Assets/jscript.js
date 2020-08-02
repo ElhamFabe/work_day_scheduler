@@ -93,38 +93,6 @@ let daySch = [
         agenda: ""
     }
 ]
-
-// // create scheduling form / rows // using forEach to called for each element in the array. 
-daySch.forEach(function (timeBlock) {
-    let timeRow = $("<form>").attr({
-        "class": "row"
-    });
-
-    $(".container").append(timeRow);
-    console.log(timeRow);
-
-    // create time for rows
-    let hrRow = $("<div>")
-        .text(`${timeBlock.hour}${timeBlock.time}`)
-        .attr({
-            "class": "col-md-1 hour" // 1-10-1 = 12 (bootstrap)
-        });
-    // create data holder for past, present and future
-    let agendaHolder = $("<div>").attr("class", "col-md-10 userInput")
-
-    let userAgenda = $("<textarea>");
-    agendaHolder.append("userAgenda");
-    userAgenda.attr("id", timeBlock.id);
-    if (timeBlock.time < moment().format("h:mm")) {
-        userAgenda.addClass("past");
-    } else if (timeBlock.time === moment().format("h:mm")) {
-        userAgenda.addClass("present");
-    } else if (timeBlock.time > moment().format("h:mm")) {
-        userAgenda.addClass("future");
-    }
-    console.log(userAgenda)
-});
-
 // moment.js data for date
 function momentDate() {
     let currentMomentDate = moment().format('LLLL');
@@ -156,21 +124,51 @@ function init() {
 }
 momentDate();
 
+// // create scheduling form / rows // using forEach to called for each element in the array. 
+daySch.forEach(function (timeBlock) {
+    let timeRow = $("<form>").attr({
+        "class": "row"
+    });
 
-// // create save button
-let saveBtn = $("<i class='fas fa-bolt'></i>");
-let saveSch = $("<button>").attr("class", "col-md-1")
+    $(".container").append(timeRow);
+    console.log(timeRow);
+
+    // create time for rows
+    let hrRow = $("<div>")
+        .text(`${timeBlock.hour}${timeBlock.time}`)
+        .addClass("col-md-2 hour");
+    // create data holder for past, present and future
+    let agendaHolder = $("<div>").addClass("col-md-8 userInput");
+
+    let userAgenda = $("<textarea>");
+    agendaHolder.append("userAgenda");
+    userAgenda.attr("id", timeBlock.id);
+    if (timeBlock.time < moment().format("h:mm")) {
+        userAgenda.addClass("past");
+    } else if (timeBlock.time === moment().format("h:mm")) {
+        userAgenda.addClass("present");
+    } else if (timeBlock.time > moment().format("h:mm")) {
+        userAgenda.addClass("future");
+    }
+    console.log(userAgenda)
 
 
 
+    // // create save button
+    let saveButton = $("<i class='fas fa-bolt'></i>");
+    let saveSch = $("<button>").addClass("col-md-2 saveBtn");
+    saveSch.append(saveButton);
+    timeRow.append(hrRow, agendaHolder, userAgenda);
+console.log(saveSch);
 
-
-init ();
+});
+init();
 
 // save data to local storage
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
-    let
+    let saved = $(this).
 
-
+        saveAgenda();
+    showAgenda();
 });
