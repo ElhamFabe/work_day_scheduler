@@ -2,62 +2,83 @@
 let daySch = [
     {
         id: "0",
-        hour: "06",
+        hour: "08",
+        time:"08",
+        mid:"am",
+
     },
     {
         id: "1",
-        hour: "07",
+        hour: "09",
+        time:"09",
+        mid:"am",
     },
     {
         id: "2",
-        hour: "08",
+        hour: "10",
+        time: "10",
+        mid:"am",
     },
     {
         id: "3",
-        hour: "09",
+        hour: "11",
+        time: "11",
+        mid:"am",
     },
     {
         id: "4",
-        hour: "10",
+        hour: "12",
+        time: "12",
+        mid:"pm",
     },
     {
         id: "5",
-        hour: "11",
+        hour: "01",
+        time: "01",
+        mid:"pm",
     },
     {
         id: "6",
-        hour: "12",
+        hour: "02",
+        time:
+        mid:"pm",
     },
     {
         id: "7",
-        hour: "01",
+        hour: "03",
+        time:
+        mid:"pm",
     },
     {
         id: "8",
-        hour: "02",
+        hour: "04",
+        time:
+        mid:"pm",
     },
     {
         id: "9",
-        hour: "03",
+        hour: "05",
+        time:
+        mid:"pm",
     },
     {
         id: "10",
-        hour: "04",
+        hour: "06",
+        time:
+        mid:"pm",
     },
     {
         id: "11",
-        hour: "05",
+        hour: "08",
+        time:
+        mid:"pm",
     },
     {
         id: "12",
-        hour: "06",
-    },
-    {
-        id: "13",
-        hour: "07",
-    },
-    
-
+        hour: "08",
+        time:
+        mid:"pm",
+    }
 ]
 
 
@@ -71,27 +92,29 @@ function momentDate() {
 
 momentDate();
 
-// create scheduling form / rows
+// // create scheduling form / rows // using forEach to called for each element in the array. 
 daySch.forEach(function (timeBlock) {
     let timeRow = $("<form>").attr({
         "class": "row"
+
     });
-$(".container").append(timeRow);
-console.log(timeRow);
 
-// create time for rows
-let hourRow = $("<div>").text()
+    $(".container").append(timeRow);
+    console.log(timeRow);
+
+    // create time for rows
+    let hrRow = $("<div>").text(${timeBlock.hour}${timeBlock.})
 });
 
 
-// create save button
-let saveBtn = $("<i class='fas fa-bolt'></i>");
-let saveSch = $("<button>").attr("class", "col-md-1")
+// // create save button
+// let saveBtn = $("<i class='fas fa-bolt'></i>");
+// let saveSch = $("<button>").attr("class", "col-md-1")
 
 
-});
+
 // local storage 
-
+// function save
 
 
 // save data to local storage
